@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dipping your feet into KnockoutJS Components</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">KO Components</a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="padding-top:50px">
+        <h2>Dipping your feet into KnockoutJS Components</h2>
+        <hr />
+        <greeter params='name: " Sumit!"'></greeter>
+        <greeter params='name: " Optimus!"'></greeter>
+        <greeter params='name: " Bumblebee!"'></greeter>
+    </div>
+    <footer class="navbar navbar-fixed-bottom">
+        <div class="container-fluid">
+            <p> &copy; 2014 - Still Learning</p>
+        </div>
+    </footer>
+    <script src="Scripts/jquery-1.9.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/knockout-3.2.0beta.debug.js"></script>
+    <script src="App/greeting.js"></script>
+</body>
+</html>
