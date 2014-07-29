@@ -57,7 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\greeting.js" />
+    <Content Include="App\boot\require.config.js" />
+    <Content Include="App\boot\startup.js" />
+    <Content Include="App\components\greeter\greeting.html" />
+    <Content Include="App\components\greeter\greeting.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -70,18 +73,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.9.0.js" />
-    <Content Include="Scripts\jquery-1.9.0.min.js" />
-    <Content Include="Scripts\knockout-3.2.0beta.debug.js" />
-    <Content Include="Scripts\r.js" />
-    <Content Include="Scripts\require.js" />
+    <None Include="Scripts\jquery\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\jquery\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\knockout\knockout-3.2.0beta.debug.js" />
+    <Content Include="Scripts\require\r.js" />
+    <Content Include="Scripts\require\require.js" />
+    <Content Include="Scripts\require\text.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Scripts\jquery-1.9.0.min.map" />
+    <Content Include="Scripts\jquery\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
