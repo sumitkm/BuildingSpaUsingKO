@@ -58,9 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\boot\require.config.js" />
+    <Content Include="App\boot\router.js" />
     <Content Include="App\boot\startup.js" />
     <Content Include="App\components\greeter\greeting.html" />
     <Content Include="App\components\greeter\greeting.js" />
+    <Content Include="App\pages\settings\settings.html" />
+    <Content Include="App\pages\home\home.html" />
+    <Content Include="App\pages\home\home.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -76,9 +80,17 @@
     <None Include="Scripts\jquery\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\crossroads\crossroads.js" />
+    <Content Include="Scripts\crossroads\crossroads.min.js" />
+    <Content Include="Scripts\crossroads\hasher.js" />
+    <Content Include="Scripts\crossroads\hasher.min.js" />
+    <Content Include="Scripts\crossroads\signals.js" />
+    <Content Include="Scripts\crossroads\signals.min.js" />
     <Content Include="Scripts\jquery\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery\jquery-1.9.0.min.js" />
     <Content Include="Scripts\knockout\knockout-3.2.0beta.debug.js" />
+    <Content Include="Scripts\knockout\knockout-projections.js" />
+    <Content Include="Scripts\knockout\knockout-projections.min.js" />
     <Content Include="Scripts\require\r.js" />
     <Content Include="Scripts\require\require.js" />
     <Content Include="Scripts\require\text.js" />
