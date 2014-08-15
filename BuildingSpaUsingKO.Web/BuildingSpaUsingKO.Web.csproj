@@ -131,7 +131,6 @@
     <Content Include="Scripts\crossroads\signals.js" />
     <Content Include="Scripts\crossroads\signals.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\historyJsAdapter.js" />
     <Content Include="Scripts\history\native.history.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
