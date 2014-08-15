@@ -1,10 +1,10 @@
 ﻿/// <reference path="/Scripts/crossroads/crossroads.js" />
-define(["jquery","knockout", "crossroads", "hasher"], function ($, ko, crossroads, hasher) {
+define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, crossroads) {
 
     return new Router({
         routes: [
-            { url: '', params: { page: 'home' } },
-            { url: 'settings', params: { page: 'settings' } }
+            { url: '/', params: { page: 'home' } },
+            { url: '/settings', params: { page: 'settings' } }
         ]
     });
 
@@ -23,44 +23,64 @@ define(["jquery","knockout", "crossroads", "hasher"], function ($, ko, crossroad
     function Router(config) {
         var currentRoute = this.currentRoute = ko.observable({});
 
-        ko.utils.arrayForEach(config.routes, function (route)
-        {
-            crossroads.addRoute(route.url, function (requestParams)
-            {
+        ko.utils.arrayForEach(config.routes, function (route) {
+            crossroads.addRoute(route.url, function (requestParams) {
                 currentRoute(ko.utils.extend(requestParams, route.params));
             });
         });
         crossroads.routed.add(console.log, console);
         activateCrossroads();
+        $("body").on("click", "a",
+            function (e) {
+                var title, urlPath;
+                urlPath = $(this).attr("href");
+                if (urlPath.slice(0, 1) == "#") {
+                    return true;
+                }
+                e.preventDefault();
+                title = $(this).text();
+                return History.pushState({
+                    urlPath: urlPath
+                }, title, urlPath);
+            });
     }
 
-    function activateCrossroads() {
-        function parseHash(newHash, oldHash)
-        {
-            //if (newHash == "")
-            //{
-            //    if(location.pathname != "/" && location.pathname.length > 1)
-            //    {
-            //        newHash = location.pathname.slice(1);
-            //    }
-            //}
-            crossroads.parse(newHash);
-        }
 
-        function changeHash(newHash, oldHash) {
-            var route = newHash;
-            //if (route) {
-            //    history.replaceState({url: route}, "", location.protocol + '//' + location.host + '/' + route);
-            //}
-            //else {
-            //    history.replaceState({url: '/' }, "", location.protocol + '//' + location.host);
-            //}
-            crossroads.parse(newHash);
-        }
+
+    function activateCrossroads() {
+        //function parseHash(newHash, oldHash)
+        //{
+        //    //if (newHash == "")
+        //    //{
+        //    //    if(location.pathname != "/" && location.pathname.length > 1)
+        //    //    {
+        //    //        newHash = location.pathname.slice(1);
+        //    //    }
+        //    //}
+        //    crossroads.parse(newHash);
+        //}
+
+        //function changeHash(newHash, oldHash) {
+        //    var route = newHash;
+        //    //if (route) {
+        //    //    history.replaceState({url: route}, "", location.protocol + '//' + location.host + '/' + route);
+        //    //}
+        //    //else {
+        //    //    history.replaceState({url: '/' }, "", location.protocol + '//' + location.host);
+        //    //}
+        //    crossroads.parse(newHash);
+        //}
         crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
 
-        hasher.initialized.add(parseHash);
-        hasher.changed.add(changeHash);
-        hasher.init();
+        //hasher.initialized.add(parseHash);
+        //hasher.changed.add(changeHash);
+        //hasher.init();
+
+        crossroads.parse('/');
+
+        History = window.History;
+        History.Adapter.bind(window, "statechange", function () {
+            return crossroads.parse(document.location.pathname + document.location.search);
+        });
     }
 });

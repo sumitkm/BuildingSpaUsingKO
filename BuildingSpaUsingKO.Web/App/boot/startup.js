@@ -1,4 +1,4 @@
-﻿define(['jquery', 'knockout', './router', 'bootstrap', 'knockout-projections'], function ($, ko, router) {
+﻿define(['jquery', 'knockout', './router', 'bootstrap', 'knockout-projections', 'historyjs'], function ($, ko, router) {
     ko.components.register('greeter', { require: 'App/components/greeter/greeting' });
     ko.components.register('home', { require: 'App/pages/home/home' });
     ko.components.register('settings', {
