@@ -37,7 +37,17 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
         History = window.History;
         History.Adapter.bind(window, "statechange", function () {
             var State = History.getState();
-            return crossroads.parse(State.data.urlPath);
+            if (State.data.urlPath) {
+                return crossroads.parse(State.data.urlPath);
+            }
+            else
+            {
+                if (State.hash.length > 1) {
+                    var fullHash = State.hash;
+                    var hashPath = fullHash.slice(0, fullHash.indexOf('?'));
+                    return crossroads.parse(hashPath);
+                }
+            }
         });
         crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
         crossroads.parse('/');
