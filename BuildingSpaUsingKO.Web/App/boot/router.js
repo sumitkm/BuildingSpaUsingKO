@@ -4,7 +4,7 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
     return new Router({
         routes: [
             { url: '/', params: { page: 'home' } },
-            { url: 'settings', params: { page: 'settings' } }
+            { url: '/settings', params: { page: 'settings' } }
         ]
     });
 
@@ -16,6 +16,7 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
                 currentRoute(ko.utils.extend(requestParams, route.params));
             });
         });
+        crossroads.routed.add(console.log, console);
         activateCrossroads();
         $("body").on("click", "a",
             function (e) {
@@ -33,12 +34,12 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
     }
 
     function activateCrossroads() {
-        crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
-        crossroads.parse('/');
-
         History = window.History;
         History.Adapter.bind(window, "statechange", function () {
-            return crossroads.parse(document.location.pathname + document.location.search);
+            var State = History.getState();
+            return crossroads.parse(State.data.urlPath);
         });
+        crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
+        crossroads.parse('/');
     }
 });
