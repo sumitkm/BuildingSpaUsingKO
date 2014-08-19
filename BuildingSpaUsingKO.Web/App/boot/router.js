@@ -16,9 +16,9 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
                 currentRoute(ko.utils.extend(requestParams, route.params));
             });
         });
-        if (console && console.log) {
-            crossroads.routed.add(console.log, console);
-        }
+        //if (console && console.log) {
+            //crossroads.routed.add(console.log, console);
+        //}
         activateCrossroads();
         $("body").on("click", "a",
             function (e) {
