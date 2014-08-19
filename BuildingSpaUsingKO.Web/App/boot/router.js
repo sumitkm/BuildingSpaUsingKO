@@ -4,7 +4,7 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
     return new Router({
         routes: [
             { url: '/', params: { page: 'home' } },
-            { url: '/settings', params: { page: 'settings' } }
+            { url: 'settings', params: { page: 'settings' } }
         ]
     });
 
