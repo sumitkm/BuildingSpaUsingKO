@@ -15,8 +15,14 @@ namespace BuildingSpaUsingKO.Web
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "{Controller}/{action}/{id}",
                 defaults: new { action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "CatchAll",
+                url: "{*pathinfo}",
+                defaults: new { Controller="Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

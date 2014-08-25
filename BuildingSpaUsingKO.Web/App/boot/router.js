@@ -36,22 +36,35 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
     }
 
     function activateCrossroads() {
-        History = window.History;
-        History.Adapter.bind(window, "statechange", function () {
-            var State = History.getState();
-            if (State.data.urlPath) {
-                return crossroads.parse(State.data.urlPath);
-            }
-            else
-            {
-                if (State.hash.length > 1) {
-                    var fullHash = State.hash;
-                    var hashPath = fullHash.slice(0, fullHash.indexOf('?'));
+        History.Adapter.bind(window, "statechange", routeCrossRoads);
+        crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
+        //crossroads.parse('/');
+        routeCrossRoads();
+    }
+
+    function routeCrossRoads() 
+    {
+        var State = History.getState();
+
+        if (State.data.urlPath) {
+            return crossroads.parse(State.data.urlPath);
+        }
+        else {
+            if (State.hash.length > 1) {
+                var fullHash = State.hash;
+                var quesPos = fullHash.indexOf('?');
+                if (quesPos > 0) {
+                    var hashPath = fullHash.slice(0, quesPos);
                     return crossroads.parse(hashPath);
                 }
+                else {
+                    return crossroads.parse(fullHash);
+                }
             }
-        });
-        crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
-        crossroads.parse('/');
+            else {
+                return crossroads.parse('/');
+            }
+        }
     }
+    
 });
