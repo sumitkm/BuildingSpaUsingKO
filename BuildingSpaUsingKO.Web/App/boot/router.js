@@ -1,10 +1,11 @@
 ﻿/// <reference path="/Scripts/crossroads/crossroads.js" />
-define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, crossroads) {
+define(["jquery", "knockout", "crossroads", "historyjs","app"], function ($, ko, crossroads, app) {
 
     return new Router({
         routes: [
             { url: '/', params: { page: 'home' } },
-            { url: 'settings', params: { page: 'settings' } }
+            { url: 'settings', params: { page: 'settings' } },
+            { url: 'settings/{tab}', params: { page: 'settings' }, title: 'Settings Page' }
         ]
     });
 
@@ -17,7 +18,7 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
             });
         });
         //if (console && console.log) {
-            //crossroads.routed.add(console.log, console);
+        //crossroads.routed.add(console.log, console);
         //}
         activateCrossroads();
         $("body").on("click", "a",
@@ -42,8 +43,7 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
         routeCrossRoads();
     }
 
-    function routeCrossRoads() 
-    {
+    function routeCrossRoads() {
         var State = History.getState();
 
         if (State.data.urlPath) {
@@ -66,5 +66,5 @@ define(["jquery", "knockout", "crossroads", "historyjs"], function ($, ko, cross
             }
         }
     }
-    
+
 });

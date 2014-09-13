@@ -98,14 +98,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\app.js" />
     <Content Include="App\boot\require.config.js" />
     <Content Include="App\boot\router.js" />
     <Content Include="App\boot\startup.js" />
+    <Content Include="App\components\models\tabbed-navigation\tabsDto.js" />
+    <Content Include="App\components\models\tabbed-navigation\tabitemDto.js" />
     <Content Include="App\components\greeter\greeting.html" />
     <Content Include="App\components\greeter\greeting.js" />
+    <Content Include="App\components\tabbed-navigation\tabbed-navigation.html" />
+    <Content Include="App\components\tabbed-navigation\tabbed-navigation.js" />
+    <Content Include="App\components\tabitem\tabitem.html" />
+    <Content Include="App\components\tabitem\tabitem.js" />
     <Content Include="App\pages\settings\settings.html" />
     <Content Include="App\pages\home\home.html" />
     <Content Include="App\pages\home\home.js" />
+    <Content Include="App\pages\settings\settings.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -169,6 +177,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\transport\model\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

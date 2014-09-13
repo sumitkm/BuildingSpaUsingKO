@@ -8,8 +8,8 @@
         "knockout": "Scripts/knockout/knockout-3.2.0beta.debug",
         "knockout-projections": "Scripts/knockout/knockout-projections.min",
         "signals": "Scripts/crossroads/signals",
-        //"hasher": "Scripts/crossroads/hasher",
-        "text": "Scripts/require/text"
+        "text": "Scripts/require/text",
+        "app" : "app/app"
     },
     shim: {
         "bootstrap": {
