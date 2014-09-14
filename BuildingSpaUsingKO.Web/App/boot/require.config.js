@@ -9,7 +9,8 @@
         "knockout-projections": "Scripts/knockout/knockout-projections.min",
         "signals": "Scripts/crossroads/signals",
         "text": "Scripts/require/text",
-        "app" : "app/app"
+        "app": "app/app",
+        "underscore": "Scripts/underscore/underscore"
     },
     shim: {
         "bootstrap": {

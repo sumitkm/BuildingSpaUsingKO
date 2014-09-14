@@ -1,7 +1,9 @@
 ﻿<ul class="nav nav-pills" role="tablist">
     <!-- ko foreach: tabs -->
-    <tabitem params="tab: $data"></tabitem>
+    <li data-bind="css : {active : isSelected }">
+        <a data-bind="text : text, attr : { href: url }"></a>
+    </li>
     <!-- /ko -->
 </ul>
 
-<div data-bind="component: { name: tabs()[selectedIndex()].componentRoute(), params: {name: tabs()[selectedIndex()].text } }"></div>
+<div data-bind="component: {name: selected().component, params: {name: selected().text }}"></div>

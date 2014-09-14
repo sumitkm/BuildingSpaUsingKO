@@ -3,7 +3,7 @@
         self = this;
         self.url = ko.observable(params.tab == null ? "" : params.tab.url);
         self.title = ko.observable(params.tab == null ? "" : params.tab.text);
-        self.component = ko.observable(params.tab == null ? "greeter" : params.tab.text);
+        self.component = ko.observable(params.tab == null ? "greeter" : params.tab.component);
         return self;
     };
     return { viewModel: settingsViewModel, template: tabitemTemplate };

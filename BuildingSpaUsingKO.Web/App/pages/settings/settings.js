@@ -2,32 +2,41 @@
     [
         "knockout",
         "text!./settings.html",
-        "../../components/models/tabbed-navigation/tabsDto",
-        "../../components/models/tabbed-navigation/tabitemDto"
+        "underscore", 
+        "../../components/models/tabbed-navigation/tabsNavigationConfig",
+        "../../components/models/tabbed-navigation/tabitemConfig"
     ],
-    function (ko, settingsTemplate) {
-
+    function (ko, settingsTemplate, _) {
         var isInitialized = false;
+        var tabsNavigationInstance = null;
         function settingsViewModel(params) {
-            isInitialized = true;
             var self = this;
             self.tabbedNavigation = new ko.observable();
-            self.selectedIndex = 0;
+            if (!isInitialized) {
+                isInitialized = true;
+                tabsNavigationInstance = init(params);
+            }
+            self.tabbedNavigation(tabsNavigationInstance);
+            self.route = new ko.observable();
+            if (params.tab) {
+                self.route(params.request_);
+            }
+            return self;
+        };
+
+        function init(params) {
             var newTabs = [];
             for (var i = 0; i < 5; i++) {
                 var key = 'tab' + i;
-                newTabs.push(new tabitemDto(
+                newTabs.push(new tabitemConfig(
                     "Settings " + i,
                     "/settings/" + key,
-                    key == params.tab));
-                if (key == params.tab) {
-                    self.selectedIndex = i;
-                }
+                    key == params.tab,
+                    'greeter'));
             }
-            var navigation = new tabsDto(newTabs, self.selectedIndex);
-            self.tabbedNavigation(navigation);
-            return self;
-        };
+            tabsNavigationInstance = new tabsNavigationConfig(newTabs, 0);
+            return tabsNavigationInstance;
+        }
 
 
         return { viewModel: settingsViewModel, template: settingsTemplate };

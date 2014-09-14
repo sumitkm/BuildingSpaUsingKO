@@ -17,9 +17,6 @@ define(["jquery", "knockout", "crossroads", "historyjs","app"], function ($, ko,
                 currentRoute(ko.utils.extend(requestParams, route.params));
             });
         });
-        //if (console && console.log) {
-        //crossroads.routed.add(console.log, console);
-        //}
         activateCrossroads();
         $("body").on("click", "a",
             function (e) {
@@ -39,7 +36,6 @@ define(["jquery", "knockout", "crossroads", "historyjs","app"], function ($, ko,
     function activateCrossroads() {
         History.Adapter.bind(window, "statechange", routeCrossRoads);
         crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
-        //crossroads.parse('/');
         routeCrossRoads();
     }
 

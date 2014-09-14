@@ -102,8 +102,8 @@
     <Content Include="App\boot\require.config.js" />
     <Content Include="App\boot\router.js" />
     <Content Include="App\boot\startup.js" />
-    <Content Include="App\components\models\tabbed-navigation\tabsDto.js" />
-    <Content Include="App\components\models\tabbed-navigation\tabitemDto.js" />
+    <Content Include="App\components\models\tabbed-navigation\tabsNavigationConfig.js" />
+    <Content Include="App\components\models\tabbed-navigation\tabitemConfig.js" />
     <Content Include="App\components\greeter\greeting.html" />
     <Content Include="App\components\greeter\greeting.js" />
     <Content Include="App\components\tabbed-navigation\tabbed-navigation.html" />
@@ -152,6 +152,8 @@
     <Content Include="Scripts\require\r.js" />
     <Content Include="Scripts\require\require.js" />
     <Content Include="Scripts\require\text.js" />
+    <Content Include="Scripts\underscore\underscore.js" />
+    <Content Include="Scripts\underscore\underscore.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -162,6 +164,7 @@
     <Content Include="Views\web.config" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\underscore\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
