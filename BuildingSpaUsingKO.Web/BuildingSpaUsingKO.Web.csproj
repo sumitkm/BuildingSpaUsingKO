@@ -102,8 +102,8 @@
     <Content Include="App\boot\require.config.js" />
     <Content Include="App\boot\router.js" />
     <Content Include="App\boot\startup.js" />
-    <Content Include="App\components\models\tabbed-navigation\tabsNavigationConfig.js" />
     <Content Include="App\components\models\tabbed-navigation\tabitemConfig.js" />
+    <Content Include="App\components\models\tabbed-navigation\tabsNavigationConfig.js" />
     <Content Include="App\components\greeter\greeting.html" />
     <Content Include="App\components\greeter\greeting.js" />
     <Content Include="App\components\tabbed-navigation\tabbed-navigation.html" />

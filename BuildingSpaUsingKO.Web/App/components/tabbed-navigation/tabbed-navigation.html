@@ -1,4 +1,4 @@
-﻿<ul class="nav nav-pills" role="tablist">
+﻿<ul id="tabHeader" class="nav nav-tabs" role="tablist">
     <!-- ko foreach: tabs -->
     <li data-bind="css : {active : isSelected }">
         <a data-bind="text : text, attr : { href: url }"></a>
@@ -6,4 +6,5 @@
     <!-- /ko -->
 </ul>
 
-<div data-bind="component: {name: selected().component, params: {name: selected().text }}"></div>
+<div id="tabPanel" 
+     data-bind="component: {name: selected().component, params: {name: selected().text }}"></div>
