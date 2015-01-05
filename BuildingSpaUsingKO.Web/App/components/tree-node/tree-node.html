@@ -1,0 +1,30 @@
+﻿<ul class="nav nav-stacked" style="padding-left:10px">
+    <li class="nav list-group-item-heading selected">
+        <div class="row">
+            <div class="col-sm-1 hidden-xs">
+                <!-- ko if: nodes().length > 0 -->
+                <!-- ko if: expanded() -->
+                <a data-bind="click: changeState" role="button" href="">
+                    <i class="glyphicon-minus"></i>
+                </a>
+                <!-- /ko -->
+                <!-- ko ifnot: expanded() -->
+                <a data-bind="click: changeState" role="button" href="">
+                    <i class="glyphicon-plus"></i>
+                </a>
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <div class="col-sm-5">
+                <span data-bind="text: title"></span>
+            </div>
+        </div>
+    </li>
+    <!-- ko if: nodes().length > 0 && expanded() === true -->
+    <!-- ko foreach: nodes -->
+    <li>
+        <tree-node params="node: $data"></tree-node>
+    </li>
+    <!-- /ko -->
+    <!-- /ko -->
+</ul>

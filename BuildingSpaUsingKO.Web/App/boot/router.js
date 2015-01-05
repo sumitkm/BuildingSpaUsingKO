@@ -1,11 +1,13 @@
 ﻿/// <reference path="/Scripts/crossroads/crossroads.js" />
-define(["jquery", "knockout", "crossroads", "historyjs","app"], function ($, ko, crossroads, app) {
+define(["jquery", "knockout", "crossroads", "historyjs", "app"], function ($, ko, crossroads, app) {
 
     return new Router({
         routes: [
             { url: '/', params: { page: 'home' } },
             { url: 'settings', params: { page: 'settings' } },
-            { url: 'settings/{tab}', params: { page: 'settings' }, title: 'Settings Page' }
+            { url: 'settings/{tab}', params: { page: 'settings' }, title: 'Settings Page' },
+            { url: 'docs', params: { page: 'docs' }, title: 'Documentation' },
+            { url: 'docs/{document}', params: { page: 'docs' }, title: 'Documentation' }
         ]
     });
 

@@ -1,0 +1,10 @@
+﻿<ul class="nav nav-stacked">
+    <li class="nav list-group-item-heading" data-bind="text: title"></li>
+    <!-- ko if: nodes().length > 0 -->
+    <li>
+        <!-- ko foreach: nodes -->
+        <tree-node params="node: $data"></tree-node>
+        <!-- /ko -->
+    </li>
+    <!-- /ko -->
+</ul>
