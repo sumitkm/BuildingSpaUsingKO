@@ -1,4 +1,4 @@
-﻿define(["knockout", "text!./tree-node.html"], function (ko, treeNodeTemplate) {
+﻿define(["knockout", "text!./tree-node.html", "amplify"], function (ko, treeNodeTemplate) {
     function treeNodeViewModel(params) {
         var self = this;
         self.title = ko.observable('Default');
@@ -16,6 +16,13 @@
         self.changeState = function () {
             self.expanded(!self.expanded());
         }
+
+        self.nodeClicked = function (currentNode) {
+            currentNode.expanded(!currentNode.expanded())
+            var nodeName = currentNode.title();
+            amplify.publish("CurrentNode-NodeClicked", nodeName);
+        }
+
         return self;
     }
     return { viewModel: treeNodeViewModel, template: treeNodeTemplate };

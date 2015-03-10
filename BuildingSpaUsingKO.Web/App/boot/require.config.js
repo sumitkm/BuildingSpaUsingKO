@@ -10,7 +10,8 @@
         "signals": "Scripts/crossroads/signals",
         "text": "Scripts/require/text",
         "app": "app/app",
-        "underscore": "Scripts/underscore/underscore"
+        "underscore": "Scripts/underscore/underscore",
+        "amplify": "Scripts/amplify/amplify.min",
     },
     shim: {
         "bootstrap": {
